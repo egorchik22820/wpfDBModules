@@ -1,0 +1,42 @@
+﻿<Window x:Class="wpfDBModules.AddEditRecipe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfDBModules"
+        mc:Ignorable="d"
+        Title="AddEditRecipe" Height="503" Width="582" Background="#FFA3F6ED">
+    <StackPanel Grid.Row="1" Width="400" HorizontalAlignment="Center" VerticalAlignment="Top">
+        <!-- Название рецепта -->
+        <TextBlock Text="Название рецепта:" FontSize="16" FontWeight="Bold" Margin="0,5,0,2"/>
+        <TextBox x:Name="txtRecipeName" Text="{Binding RecipeName}" Height="35" Padding="5" FontSize="14" BorderBrush="#CCCCCC"/>
+
+        <!-- Описание -->
+        <TextBlock Text="Описание:" FontSize="16" FontWeight="Bold" Margin="0,10,0,2"/>
+        <TextBox x:Name="txtDescription" Text="{Binding Description}" Height="80" Padding="5" FontSize="14" 
+                 TextWrapping="Wrap" AcceptsReturn="True" BorderBrush="#CCCCCC"/>
+
+        <!-- Время готовки -->
+        <TextBlock Text="Время готовки (минуты):" FontSize="16" FontWeight="Bold" Margin="0,10,0,2"/>
+        <TextBox x:Name="txtCookingTime" Text="{Binding CookingTime}" Height="35" Padding="5" FontSize="14" BorderBrush="#CCCCCC"/>
+
+        <!-- Имя автора -->
+        <TextBlock Text="Имя автора:" FontSize="16" FontWeight="Bold" Margin="0,10,0,2"/>
+        <ComboBox x:Name="txtAuthorName" Text="{Binding AuthorID}" Height="35" Padding="5" FontSize="14" BorderBrush="#CCCCCC" DisplayMemberPath="AuthorName"/>
+
+        <!-- Категории -->
+        <TextBlock Text="Категория:" FontSize="16" FontWeight="Bold" Margin="0,10,0,2"/>
+        <ComboBox x:Name="txtCategoriesName" Text="{Binding CategoryID}" Height="35" Padding="5" FontSize="14" BorderBrush="#CCCCCC" DisplayMemberPath="CategoryName"/>
+
+
+        <!-- Кнопки -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,20,20,0">
+            <Button Content="Сохранить" Width="120" Height="40" Margin="10"
+                    Background="#2ECC71" Foreground="White" FontSize="14"
+                    FontWeight="Bold" BorderThickness="0" Cursor="Hand" Click="Button_Click"/>
+            <Button Content="Отмена" Width="120" Height="40" Margin="10"
+                    Background="#E74C3C" Foreground="White" FontSize="14"
+                    FontWeight="Bold" BorderThickness="0" Cursor="Hand"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

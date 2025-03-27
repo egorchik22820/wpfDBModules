@@ -51,6 +51,10 @@ namespace wpfDBModules
                         case "admin":
                             MessageBox.Show("Здравствуйте, администратор " + userObj.first_name + "!",
                                 "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                            RecipesView recipesView = new RecipesView();
+                            recipesView.Show();
+                            this.Close();
                             break;
                         case "user":
                             MessageBox.Show("Здравствуйте, пользователь " + userObj.first_name + "!",

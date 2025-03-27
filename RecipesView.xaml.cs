@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using wpfDBModules.AppData;
 
 namespace wpfDBModules
 {
@@ -22,6 +23,23 @@ namespace wpfDBModules
         public RecipesView()
         {
             InitializeComponent();
+
+            List<Recipes> recipes = AppData.AppConnect.modelDB.Recipes.ToList();
+
+            listRecipes.ItemsSource = recipes;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddEditRecipe addEditRecipe = new AddEditRecipe();
+            addEditRecipe.Show();
+
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            AppData.AppConnect.modelDB.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+            listRecipes.ItemsSource = AppData.AppConnect.modelDB.Recipes.ToList();
         }
     }
 }

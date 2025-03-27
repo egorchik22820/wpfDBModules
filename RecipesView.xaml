@@ -5,15 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpfDBModules"
         mc:Ignorable="d"
-        Title="RecipesView" Height="450" Width="800" Background="#FFA3F6ED">
+        Title="RecipesView" Height="450" Width="800" Background="#FFA3F6ED" IsVisibleChanged="Page_IsVisibleChanged">
+    <Window.Resources>
+        <DropShadowEffect x:Key="ShadowEffect" Color="Black" Opacity="0.2" BlurRadius="5"/>
+    </Window.Resources>
     <Grid>
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Background="#FFA3F6ED">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
+        <!-- Основной список рецептов -->
+        <ListView x:Name="listRecipes" Background="#FFA3F6ED" BorderThickness="0"
+              ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="0,0,133,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="White" CornerRadius="10" Padding="10" Margin="5"
+                        Effect="{DynamicResource ShadowEffect}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <!-- Для возможного изображения -->
+                                <ColumnDefinition Width="700"/>
+                                <!-- Основной контент -->
+                                <ColumnDefinition Width="200"/>
+                                <!-- Время приготовления -->
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Средняя колонка (Основная информация) -->
+                            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,0">
+                                <TextBlock FontSize="16" FontWeight="Bold" Foreground="#2C3E50">
+                                <Run Text="Название: " />
+                                <Run Text="{Binding RecipeName}" FontWeight="Normal"/>
+                                </TextBlock>
+                                <TextBlock FontSize="14" Foreground="#555" TextWrapping="Wrap">
+                                <Run Text="Описание: " />
+                                <Run Text="{Binding Description}" FontWeight="Normal"/>
+                                </TextBlock>
+                                <TextBlock FontSize="14" Foreground="#777">
+                                <Run Text="Время приготовления: " />
+                                <Run Text="{Binding CookingTime}" FontWeight="Bold"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
+        <!-- Кнопки справа -->
+        <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Right"
+                VerticalAlignment="Top" Margin="10,0,10,0" Cursor="">
+            <Button Content="Добавить" Width="105" Height="40" Margin="3"
+                Background="#2ECC71" Foreground="White" FontSize="14"
+                FontWeight="Bold" BorderThickness="0" Cursor="Hand" Click="Button_Click"/>
+            <Button Content="Редактировать" Width="105" Height="40" Margin="3"
+                Background="#3498DB" Foreground="White" FontSize="14"
+                FontWeight="Bold" BorderThickness="0" Cursor="Hand"/>
+        </StackPanel>
     </Grid>
+
 </Window>
