@@ -22,11 +22,11 @@
 
         <!-- Имя автора -->
         <TextBlock Text="Имя автора:" FontSize="16" FontWeight="Bold" Margin="0,10,0,2"/>
-        <ComboBox x:Name="txtAuthorName" Text="{Binding AuthorID}" Height="35" Padding="5" FontSize="14" BorderBrush="#CCCCCC" DisplayMemberPath="AuthorName"/>
+        <ComboBox x:Name="txtAuthorName" SelectedIndex="{Binding AuthorID}" Height="35" Padding="5" FontSize="14" BorderBrush="#CCCCCC" DisplayMemberPath="AuthorName"/>
 
         <!-- Категории -->
         <TextBlock Text="Категория:" FontSize="16" FontWeight="Bold" Margin="0,10,0,2"/>
-        <ComboBox x:Name="txtCategoriesName" Text="{Binding CategoryID}" Height="35" Padding="5" FontSize="14" BorderBrush="#CCCCCC" DisplayMemberPath="CategoryName"/>
+        <ComboBox x:Name="txtCategoriesName" SelectedIndex="{Binding CategoryID}" Height="35" Padding="5" FontSize="14" BorderBrush="#CCCCCC" DisplayMemberPath="CategoryName"/>
 
 
         <!-- Кнопки -->

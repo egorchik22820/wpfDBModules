@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,54 +24,79 @@ namespace wpfDBModules
     {
 
         private Recipes _currentRecipes = new Recipes();
+
         public AddEditRecipe()
         {
             InitializeComponent();
 
+            LoadAuthors();
+            LoadCategories();
+
             DataContext = _currentRecipes;
+        }
+        public AddEditRecipe(Recipes currentRecipes)
+        {
+            InitializeComponent();
 
-            txtAuthorName.ItemsSource = AppData.AppConnect.modelDB.Authors.ToList();
+            if (_currentRecipes != null)
+                this._currentRecipes = currentRecipes;
+
+            LoadAuthors();
+            LoadCategories();
+
+            DataContext = currentRecipes;
+
+            //txtAuthorName.ItemsSource = AppData.AppConnect.modelDB.Authors.ToList();
+            //txtAuthorName.DisplayMemberPath = "AuthorName";
+
+            //txtCategoriesName.ItemsSource = AppData.AppConnect.modelDB.Categories.ToList();
+            //txtCategoriesName.DisplayMemberPath = "CategoryName";
+
+        }
+
+        private void LoadAuthors()
+        {
+            var authors = AppConnect.modelDB.Authors.ToList();
+            //txtAuthorName.Items.Add("Авторы");
+            //foreach (var auth in authors)
+            //{
+            //    txtAuthorName.Items.Add(auth.AuthorName);
+            //}
+            txtAuthorName.ItemsSource = authors;
             txtAuthorName.DisplayMemberPath = "AuthorName";
+        }
 
-            txtCategoriesName.ItemsSource = AppData.AppConnect.modelDB.Categories.ToList();
+        private void LoadCategories()
+        {
+            var categories = AppConnect.modelDB.Categories.ToList();
+            //txtCategoriesName.Items.Add("Категория");
+            //foreach (var auth in categories)
+            //{
+            //    txtCategoriesName.Items.Add(auth.CategoryName);
+            //}
+            txtCategoriesName.ItemsSource = categories;
             txtCategoriesName.DisplayMemberPath = "CategoryName";
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            StringBuilder error = new StringBuilder();
-
-            if (string.IsNullOrEmpty(_currentRecipes.RecipeName))
-                error.AppendLine("Укажите название рецепта");
-            if (string.IsNullOrEmpty(_currentRecipes.Description))
-                error.AppendLine("Заполните описание");
-            if (string.IsNullOrEmpty(_currentRecipes.CookingTime.ToString()))
-                error.AppendLine("Укажите время приготовления");
-            if (_currentRecipes.AuthorID == 0)
-                error.AppendLine("Укажите автора");
-            if (_currentRecipes.CategoryID == 0)
-                error.AppendLine("Укажите категорию");
-
-            if (error.Length > 0)
-            {
-                MessageBox.Show(error.ToString());
-                return;
-            }
-
-            if (_currentRecipes.RecipeID == 0)
-            {
-                AppData.AppConnect.modelDB.Recipes.Add(_currentRecipes);
-            }
 
             try
             {
-                AppData.AppConnect.modelDB.SaveChanges();
-                MessageBox.Show("Информация сохранена!");
+                
+                if (_currentRecipes.RecipeID == 0)
+                {
+                    _currentRecipes.CategoryID = AppConnect.modelDB.Categories.FirstOrDefault(x => x.CategoryName == txtCategoriesName.Text).CategoryID;
+                    _currentRecipes.AuthorID = AppConnect.modelDB.Authors.FirstOrDefault(x => x.AuthorName == txtAuthorName.Text).AuthorID;
+                    AppConnect.modelDB.Recipes.Add(_currentRecipes);
+                }
+
+                AppConnect.modelDB.SaveChanges();
+                this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
     }

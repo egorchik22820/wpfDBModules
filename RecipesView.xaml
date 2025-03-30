@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpfDBModules"
         mc:Ignorable="d"
-        Title="RecipesView" Height="450" Width="800" Background="#FFA3F6ED" IsVisibleChanged="Page_IsVisibleChanged">
+        Title="RecipesView" Height="450" Width="800" Background="#FFA3F6ED">
     <Window.Resources>
         <DropShadowEffect x:Key="ShadowEffect" Color="Black" Opacity="0.2" BlurRadius="5"/>
     </Window.Resources>
@@ -51,12 +51,12 @@
         <!-- Кнопки справа -->
         <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Right"
                 VerticalAlignment="Top" Margin="10,0,10,0" Cursor="">
-            <Button Content="Добавить" Width="105" Height="40" Margin="3"
+            <Button x:Name="addBtn" Content="Добавить" Width="105" Height="40" Margin="3"
                 Background="#2ECC71" Foreground="White" FontSize="14"
-                FontWeight="Bold" BorderThickness="0" Cursor="Hand" Click="Button_Click"/>
-            <Button Content="Редактировать" Width="105" Height="40" Margin="3"
+                FontWeight="Bold" BorderThickness="0" Cursor="Hand" Click="addBtn_Click"/>
+            <Button x:Name="editBtn" Content="Редактировать" Width="105" Height="40" Margin="3"
                 Background="#3498DB" Foreground="White" FontSize="14"
-                FontWeight="Bold" BorderThickness="0" Cursor="Hand"/>
+                FontWeight="Bold" BorderThickness="0" Cursor="Hand" Click="editBtn_Click"/>
         </StackPanel>
     </Grid>
 
