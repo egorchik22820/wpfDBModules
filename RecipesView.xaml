@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpfDBModules"
         mc:Ignorable="d"
-        Title="RecipesView" Height="450" Width="800" Background="#FFA3F6ED">
+        Title="рецепты" Height="450" Width="800" Background="#FFA3F6ED">
     <Window.Resources>
         <DropShadowEffect x:Key="ShadowEffect" Color="Black" Opacity="0.2" BlurRadius="5"/>
     </Window.Resources>

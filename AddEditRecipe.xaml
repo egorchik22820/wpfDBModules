@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpfDBModules"
         mc:Ignorable="d"
-        Title="AddEditRecipe" Height="503" Width="582" Background="#FFA3F6ED">
+        Title="добавить/изменить" Height="503" Width="582" Background="#FFA3F6ED">
     <StackPanel Grid.Row="1" Width="400" HorizontalAlignment="Center" VerticalAlignment="Top">
         <!-- Название рецепта -->
         <TextBlock Text="Название рецепта:" FontSize="16" FontWeight="Bold" Margin="0,5,0,2"/>

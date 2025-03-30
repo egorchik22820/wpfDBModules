@@ -42,7 +42,7 @@ namespace wpfDBModules
                 if (userObj == null)
                 {
                     MessageBox.Show("Такого пользователя нет!", "Ошибка при авторизации!",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
@@ -58,7 +58,7 @@ namespace wpfDBModules
                             break;
                         case "user":
                             MessageBox.Show("Здравствуйте, пользователь " + userObj.first_name + "!",
-                                "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+                                "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             break;
                         default:
                             MessageBox.Show("Данные не найдены!", "Уведомление",
@@ -71,7 +71,7 @@ namespace wpfDBModules
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка " + ex.Message.ToString() + "критическая работа приложения!",
-                    "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

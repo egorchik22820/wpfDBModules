@@ -118,7 +118,7 @@ namespace wpfDBModules
                         break;
                     default:
                         sortedRecipes = recipes;
-                        break; // доделать
+                        break;
                 }
 
                 // Преобразуем в ObservableCollection перед привязкой к ListView
