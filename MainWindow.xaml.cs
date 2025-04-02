@@ -24,7 +24,7 @@ namespace wpfDBModules
         public MainWindow()
         {
             InitializeComponent();
-            AppData.AppConnect.modelDB = new wpfDBEntities1();
+            AppData.AppConnect.modelDB = new wpfDB1Entities();
         }
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
@@ -50,7 +50,7 @@ namespace wpfDBModules
                     {
                         case "admin":
                             MessageBox.Show("Здравствуйте, администратор " + userObj.first_name + "!",
-                                "Уведомление", MessageBoxButton.OK, MessageBoxImage.Error);
+                                "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
 
                             RecipesView recipesView = new RecipesView();
                             recipesView.Show();

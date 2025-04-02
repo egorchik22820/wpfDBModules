@@ -27,6 +27,8 @@
                                 <!-- Время приготовления -->
                             </Grid.ColumnDefinitions>
 
+                            <Image Source="{Binding CurrentPhoto}" Grid.Column="0" Margin="10"/>
+
                             <!-- Средняя колонка (Основная информация) -->
                             <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10,0">
                                 <TextBlock FontSize="16" FontWeight="Bold" Foreground="#2C3E50">
@@ -71,8 +73,7 @@
             <ComboBox x:Name="ComboSort" Width="151" SelectionChanged="ComboSort_SelectionChanged">
                 <ComboBoxItem Content="по имени"/>
                 <ComboBoxItem Content="по времени готовки"/>
-            </ComboBox> 
-        
+            </ComboBox>
         </StackPanel>
 
     </Grid>

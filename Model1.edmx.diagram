@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4e95071deb034ca6bcd4442ebf183a5a" Name="Diagram1">
+        <EntityTypeShape EntityType="wpfDB1Model.Authors" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="wpfDB1Model.Categories" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="wpfDB1Model.CookingSteps" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="wpfDB1Model.Employees" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="wpfDB1Model.Ingredients" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="wpfDB1Model.RecipeIngredients" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="wpfDB1Model.Recipes" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="wpfDB1Model.RecipeTags" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="wpfDB1Model.Reviews" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="wpfDB1Model.sysdiagrams" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="wpfDB1Model.Tags" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
+        <AssociationConnector Association="wpfDB1Model.FK_Recipes_Authors" ManuallyRouted="false" />
+        <AssociationConnector Association="wpfDB1Model.FK_Recipes_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="wpfDB1Model.FK_CookingSteps_Recipes" ManuallyRouted="false" />
+        <AssociationConnector Association="wpfDB1Model.FK_RecipeIngredients_Ingredients" ManuallyRouted="false" />
+        <AssociationConnector Association="wpfDB1Model.FK_RecipeIngredients_Recipes" ManuallyRouted="false" />
+        <AssociationConnector Association="wpfDB1Model.FK_RecipeTags_Recipes" ManuallyRouted="false" />
+        <AssociationConnector Association="wpfDB1Model.FK_Reviews_Recipes" ManuallyRouted="false" />
+        <AssociationConnector Association="wpfDB1Model.FK_RecipeTags_Tags" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -8,6 +8,6 @@ namespace wpfDBModules.AppData
 {
     internal class AppConnect
     {
-        public static wpfDBEntities1 modelDB;
+        public static wpfDB1Entities modelDB;
     }
 }
